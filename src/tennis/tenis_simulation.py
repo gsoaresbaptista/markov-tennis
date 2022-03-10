@@ -20,16 +20,16 @@ class TenisSimulation:
 
             #
             match: Dict = {
-                'A points': 0,
-                'B points': 0,
+                'A scored': 0,
+                'B scored': 0,
                 'sets A-Wins': 0,
                 'sets B-Wins': 0,
                 'games A-Wins': 0,
                 'games B-Wins': 0,
+                'deuce': 0,
             }
 
             while not game_end:
-                current_node: Markov = get_tennis_machine()
                 set_end = False
 
                 game_results: Dict = {
@@ -38,12 +38,18 @@ class TenisSimulation:
                 }
 
                 while not set_end:
+                    current_node: Markov = get_tennis_machine()
+
                     while not current_node.is_over():
                         number: float = random()
 
                         # Compute point
                         p = number < probability
-                        match['A points' if p else 'B points'] += 1
+                        match['A scored' if p else 'B scored'] += 1
+
+                        #
+                        if current_node.name == 'Deuce':
+                            match['deuce'] += 1
 
                         # Update simulation state
                         current_node.process(p)
