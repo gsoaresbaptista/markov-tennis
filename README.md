@@ -13,4 +13,11 @@ Os _datasets_ contendo o log com o resultado de cada simulação encontram-se em
 
 ### Gerando valores
 
-Parar gerar as simulações basta executar o Notebook, escolhendo valores para _n_sample_ (número de simulações) e _probability_ (valor de p, onde p é a probabilidade do jogador A pontuar). Automaticamente será gerado um _dataset_ com os resultados computados.
+Parar gerar as simulações basta executar o Notebook, escolhendo valores para _n_sample_ (número de simulações) e _probability_ (valor de p, onde p é a probabilidade do jogador A pontuar). Automaticamente será gerado um _dataset_ com os resultados computados.  
+Para rodar o Notebook, garanta que todos os pacotes necessários descritos em `requirements.txt` estão instalados.
+
+- Com pip
+
+```
+pip install -r .\requirements.txt --user
+```
